@@ -1,0 +1,79 @@
+/* Import font dari Google agar terlihat sangat autentik (opsional) */
+@import url('https://fonts.googleapis.com/css2?family=Rye&family=Special+Elite&display=swap');
+
+/* Styling untuk keseluruhan halaman */
+body {
+    font-family: 'Special Elite', 'Courier New', monospace; /* Efek mesin tik tua */
+    background-color: #2b1d0e; /* Cokelat gelap kayu */
+    background-image: radial-gradient(#4d3420 1px, transparent 1px);
+    background-size: 20px 20px; /* Tekstur bintik debu */
+    color: #4a3321;
+    margin: 0;
+    padding: 20px;
+}
+
+/* Container utama - Dibuat seperti poster WANTED atau kulit samak */
+.card {
+    max-width: 500px;
+    margin: 40px auto;
+    background: #e9d5a3; /* Warna kertas usang/parchment */
+    padding: 40px;
+    border: 15px double #6b4423; /* Border ganda kayu */
+    border-radius: 5px;
+    box-shadow: 0 0 50px rgba(0,0,0,0.5), inset 0 0 100px rgba(139,69,19,0.2);
+    position: relative;
+}
+
+/* Efek robekan kertas di pinggir (opsional visual) */
+.card::before {
+    content: "WANTED";
+    display: block;
+    text-align: center;
+    font-family: 'Rye', cursive;
+    font-size: 3rem;
+    color: #4a3321;
+    margin-bottom: 20px;
+    border-bottom: 4px solid #4a3321;
+}
+
+/* Header utama - Nama sang Buronan */
+h1 {
+    font-family: 'Rye', cursive; /* Font ala papan saloon */
+    color: #8b0000; /* Merah darah tua */
+    text-align: center;
+    font-size: 2.5rem;
+    margin-top: 0;
+    text-shadow: 2px 2px #c0a080;
+}
+
+/* Paragraf - Pesan di poster */
+p {
+    font-size: 18px;
+    font-weight: bold;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
+}
+
+/* Garis pemisah - Tali tambang atau garis kasar */
+hr {
+    border: none;
+    height: 3px;
+    background: repeating-linear-gradient(90deg, #6b4423, #6b4423 10px, #e9d5a3 10px, #e9d5a3 20px);
+    margin: 20px 0;
+}
+
+/* Greeting - Salam dari Binjai */
+small {
+    display: block;
+    font-family: 'Rye', cursive;
+    font-size: 1.1rem;
+    text-align: center;
+    color: #fff;
+    background: #6b4423; /* Latar cokelat kulit */
+    padding: 10px;
+    margin-top: 20px;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    box-shadow: 3px 3px 0px #000;
+}
