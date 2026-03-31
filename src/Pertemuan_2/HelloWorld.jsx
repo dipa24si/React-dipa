@@ -39,7 +39,7 @@ function QuoteText() {
 
 function GreetingsBinjai(){
     return (
-        <small>Salam dari Binjai 🫡 </small>
+        <small>Salam dari Binjai  </small>
     )
 }
 
