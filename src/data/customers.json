@@ -1,0 +1,212 @@
+[
+  {
+    "id": "CUST001",
+    "name": "Ahmad Rifki",
+    "email": "ahmad.rifki@email.com",
+    "phone": "+62812345001",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST002",
+    "name": "Budi Santoso",
+    "email": "budi.santoso@email.com",
+    "phone": "+62812345002",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST003",
+    "name": "Citra Dewi",
+    "email": "citra.dewi@email.com",
+    "phone": "+62812345003",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST004",
+    "name": "Doni Pratama",
+    "email": "doni.pratama@email.com",
+    "phone": "+62812345004",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST005",
+    "name": "Eka Susanti",
+    "email": "eka.susanti@email.com",
+    "phone": "+62812345005",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST006",
+    "name": "Fahmi Hidayat",
+    "email": "fahmi.hidayat@email.com",
+    "phone": "+62812345006",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST007",
+    "name": "Gina Putri",
+    "email": "gina.putri@email.com",
+    "phone": "+62812345007",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST008",
+    "name": "Hendra Wijaya",
+    "email": "hendra.wijaya@email.com",
+    "phone": "+62812345008",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST009",
+    "name": "Indah Lestari",
+    "email": "indah.lestari@email.com",
+    "phone": "+62812345009",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST010",
+    "name": "Joko Prasetyo",
+    "email": "joko.prasetyo@email.com",
+    "phone": "+62812345010",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST011",
+    "name": "Kartini Rahmawati",
+    "email": "kartini.rahmawati@email.com",
+    "phone": "+62812345011",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST012",
+    "name": "Luthfi Rakhman",
+    "email": "luthfi.rakhman@email.com",
+    "phone": "+62812345012",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST013",
+    "name": "Maya Kusuma",
+    "email": "maya.kusuma@email.com",
+    "phone": "+62812345013",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST014",
+    "name": "Nanda Pratama",
+    "email": "nanda.pratama@email.com",
+    "phone": "+62812345014",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST015",
+    "name": "Ola Krisna",
+    "email": "ola.krisna@email.com",
+    "phone": "+62812345015",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST016",
+    "name": "Priyo Hermanto",
+    "email": "priyo.hermanto@email.com",
+    "phone": "+62812345016",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST017",
+    "name": "Qori Septiana",
+    "email": "qori.septiana@email.com",
+    "phone": "+62812345017",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST018",
+    "name": "Rendi Setiawan",
+    "email": "rendi.setiawan@email.com",
+    "phone": "+62812345018",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST019",
+    "name": "Siti Aminah",
+    "email": "siti.aminah@email.com",
+    "phone": "+62812345019",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST020",
+    "name": "Tedi Gunawan",
+    "email": "tedi.gunawan@email.com",
+    "phone": "+62812345020",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST021",
+    "name": "Udin Supriyadi",
+    "email": "udin.supriyadi@email.com",
+    "phone": "+62812345021",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST022",
+    "name": "Vira Nurjanah",
+    "email": "vira.nurjanah@email.com",
+    "phone": "+62812345022",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST023",
+    "name": "Wawan Kustiawan",
+    "email": "wawan.kustiawan@email.com",
+    "phone": "+62812345023",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST024",
+    "name": "Xenia Cahaya",
+    "email": "xenia.cahaya@email.com",
+    "phone": "+62812345024",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST025",
+    "name": "Yusuf Hidayatullah",
+    "email": "yusuf.hidayatullah@email.com",
+    "phone": "+62812345025",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST026",
+    "name": "Zara Elisa",
+    "email": "zara.elisa@email.com",
+    "phone": "+62812345026",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "CUST027",
+    "name": "Adil Rahman",
+    "email": "adil.rahman@email.com",
+    "phone": "+62812345027",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST028",
+    "name": "Bella Mustika",
+    "email": "bella.mustika@email.com",
+    "phone": "+62812345028",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "CUST029",
+    "name": "Cahyo Mardini",
+    "email": "cahyo.mardini@email.com",
+    "phone": "+62812345029",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "CUST030",
+    "name": "Dita Salsabila",
+    "email": "dita.salsabila@email.com",
+    "phone": "+62812345030",
+    "loyalty": "Gold"
+  }
+]

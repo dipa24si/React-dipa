@@ -1,0 +1,212 @@
+[
+  {
+    "id": "ORD001",
+    "customerName": "Ahmad Rifki",
+    "status": "Completed",
+    "totalPrice": "Rp 125.000",
+    "orderDate": "2025-04-15"
+  },
+  {
+    "id": "ORD002",
+    "customerName": "Budi Santoso",
+    "status": "Pending",
+    "totalPrice": "Rp 87.500",
+    "orderDate": "2025-04-19"
+  },
+  {
+    "id": "ORD003",
+    "customerName": "Citra Dewi",
+    "status": "Completed",
+    "totalPrice": "Rp 210.000",
+    "orderDate": "2025-04-10"
+  },
+  {
+    "id": "ORD004",
+    "customerName": "Doni Pratama",
+    "status": "Cancelled",
+    "totalPrice": "Rp 150.000",
+    "orderDate": "2025-04-05"
+  },
+  {
+    "id": "ORD005",
+    "customerName": "Eka Susanti",
+    "status": "Completed",
+    "totalPrice": "Rp 92.500",
+    "orderDate": "2025-04-18"
+  },
+  {
+    "id": "ORD006",
+    "customerName": "Fahmi Hidayat",
+    "status": "Pending",
+    "totalPrice": "Rp 175.000",
+    "orderDate": "2025-04-20"
+  },
+  {
+    "id": "ORD007",
+    "customerName": "Gina Putri",
+    "status": "Completed",
+    "totalPrice": "Rp 135.000",
+    "orderDate": "2025-04-12"
+  },
+  {
+    "id": "ORD008",
+    "customerName": "Hendra Wijaya",
+    "status": "Completed",
+    "totalPrice": "Rp 220.000",
+    "orderDate": "2025-04-08"
+  },
+  {
+    "id": "ORD009",
+    "customerName": "Indah Lestari",
+    "status": "Pending",
+    "totalPrice": "Rp 165.000",
+    "orderDate": "2025-04-21"
+  },
+  {
+    "id": "ORD010",
+    "customerName": "Joko Prasetyo",
+    "status": "Completed",
+    "totalPrice": "Rp 98.000",
+    "orderDate": "2025-04-14"
+  },
+  {
+    "id": "ORD011",
+    "customerName": "Kartini Rahmawati",
+    "status": "Cancelled",
+    "totalPrice": "Rp 140.000",
+    "orderDate": "2025-04-02"
+  },
+  {
+    "id": "ORD012",
+    "customerName": "Luthfi Rakhman",
+    "status": "Completed",
+    "totalPrice": "Rp 185.000",
+    "orderDate": "2025-04-11"
+  },
+  {
+    "id": "ORD013",
+    "customerName": "Maya Kusuma",
+    "status": "Pending",
+    "totalPrice": "Rp 110.000",
+    "orderDate": "2025-04-22"
+  },
+  {
+    "id": "ORD014",
+    "customerName": "Nanda Pratama",
+    "status": "Completed",
+    "totalPrice": "Rp 195.000",
+    "orderDate": "2025-04-09"
+  },
+  {
+    "id": "ORD015",
+    "customerName": "Ola Krisna",
+    "status": "Completed",
+    "totalPrice": "Rp 155.000",
+    "orderDate": "2025-04-16"
+  },
+  {
+    "id": "ORD016",
+    "customerName": "Priyo Hermanto",
+    "status": "Cancelled",
+    "totalPrice": "Rp 128.000",
+    "orderDate": "2025-03-28"
+  },
+  {
+    "id": "ORD017",
+    "customerName": "Qori Septiana",
+    "status": "Pending",
+    "totalPrice": "Rp 205.000",
+    "orderDate": "2025-04-21"
+  },
+  {
+    "id": "ORD018",
+    "customerName": "Rendi Setiawan",
+    "status": "Completed",
+    "totalPrice": "Rp 145.000",
+    "orderDate": "2025-04-13"
+  },
+  {
+    "id": "ORD019",
+    "customerName": "Siti Aminah",
+    "status": "Pending",
+    "totalPrice": "Rp 160.000",
+    "orderDate": "2025-04-20"
+  },
+  {
+    "id": "ORD020",
+    "customerName": "Tedi Gunawan",
+    "status": "Completed",
+    "totalPrice": "Rp 230.000",
+    "orderDate": "2025-04-06"
+  },
+  {
+    "id": "ORD021",
+    "customerName": "Udin Supriyadi",
+    "status": "Completed",
+    "totalPrice": "Rp 105.000",
+    "orderDate": "2025-04-17"
+  },
+  {
+    "id": "ORD022",
+    "customerName": "Vira Nurjanah",
+    "status": "Cancelled",
+    "totalPrice": "Rp 120.000",
+    "orderDate": "2025-04-01"
+  },
+  {
+    "id": "ORD023",
+    "customerName": "Wawan Kustiawan",
+    "status": "Pending",
+    "totalPrice": "Rp 175.000",
+    "orderDate": "2025-04-19"
+  },
+  {
+    "id": "ORD024",
+    "customerName": "Xenia Cahaya",
+    "status": "Completed",
+    "totalPrice": "Rp 190.000",
+    "orderDate": "2025-04-07"
+  },
+  {
+    "id": "ORD025",
+    "customerName": "Yusuf Hidayatullah",
+    "status": "Completed",
+    "totalPrice": "Rp 168.000",
+    "orderDate": "2025-04-03"
+  },
+  {
+    "id": "ORD026",
+    "customerName": "Zara Elisa",
+    "status": "Pending",
+    "totalPrice": "Rp 145.000",
+    "orderDate": "2025-04-18"
+  },
+  {
+    "id": "ORD027",
+    "customerName": "Adil Rahman",
+    "status": "Completed",
+    "totalPrice": "Rp 200.000",
+    "orderDate": "2025-04-04"
+  },
+  {
+    "id": "ORD028",
+    "customerName": "Bella Mustika",
+    "status": "Cancelled",
+    "totalPrice": "Rp 135.000",
+    "orderDate": "2025-03-30"
+  },
+  {
+    "id": "ORD029",
+    "customerName": "Cahyo Mardini",
+    "status": "Completed",
+    "totalPrice": "Rp 178.000",
+    "orderDate": "2025-04-19"
+  },
+  {
+    "id": "ORD030",
+    "customerName": "Dita Salsabila",
+    "status": "Pending",
+    "totalPrice": "Rp 212.000",
+    "orderDate": "2025-04-22"
+  }
+]

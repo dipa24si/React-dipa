@@ -1,7 +1,10 @@
-﻿import { FaHome, FaShoppingCart, FaUsers, FaPlus } from "react-icons/fa";
+﻿import { FaHome, FaShoppingCart, FaUsers, FaPlus, FaExclamationTriangle } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
+import { useState } from "react";
 
 export default function Sidebar() {
+    const [expandErrorMenu, setExpandErrorMenu] = useState(false);
+
     const menuClass = ({ isActive }) =>
         `flex cursor-pointer items-center rounded-xl p-4 space-x-2
         ${isActive ? 
@@ -39,6 +42,47 @@ export default function Sidebar() {
                             <FaUsers className="text-xl" />
                             <span>Customers</span>
                         </NavLink>
+                    </li>
+
+                    {/* Error Pages Menu */}
+                    <li id="menu-4">
+                        <div 
+                            onClick={() => setExpandErrorMenu(!expandErrorMenu)}
+                            className="flex cursor-pointer items-center rounded-xl p-4 space-x-2 text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
+                        >
+                            <FaExclamationTriangle className="text-xl" />
+                            <span>Error Pages</span>
+                        </div>
+                        
+                        {/* Submenu */}
+                        {expandErrorMenu && (
+                            <ul className="mt-2 ml-4 space-y-2 pl-2 border-l-2 border-hijau">
+                                <li>
+                                    <NavLink 
+                                        to="/error/400"
+                                        className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors"
+                                    >
+                                        <span>Error 400 (Bad Request)</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink 
+                                        to="/error/401"
+                                        className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-colors"
+                                    >
+                                        <span>Error 401 (Unauthorized)</span>
+                                    </NavLink>
+                                </li>
+                                <li>
+                                    <NavLink 
+                                        to="/error/403"
+                                        className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-yellow-600 hover:bg-yellow-50 transition-colors"
+                                    >
+                                        <span>Error 403 (Forbidden)</span>
+                                    </NavLink>
+                                </li>
+                            </ul>
+                        )}
                     </li>
                 </ul>
             </div>
