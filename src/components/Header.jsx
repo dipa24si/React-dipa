@@ -2,7 +2,7 @@
 import { FaBell, FaSearch } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
-import SearchModal from "../components/SearchModal";
+import SearchModal from "./SearchModal";
 
 export default function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
