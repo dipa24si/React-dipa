@@ -43,9 +43,15 @@ export default function Sidebar() {
                             <span>Customers</span>
                         </NavLink>
                     </li>
+                    <li id="menu-4">
+                        <NavLink to="/products" className={menuClass}>
+                            <FaPlus className="text-xl" />
+                            <span>Products</span>
+                        </NavLink>
+                    </li>
 
                     {/* Error Pages Menu */}
-                    <li id="menu-4">
+                    <li id="menu-5">
                         <div 
                             onClick={() => setExpandErrorMenu(!expandErrorMenu)}
                             className="flex cursor-pointer items-center rounded-xl p-4 space-x-2 text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"

@@ -1,0 +1,272 @@
+[
+  {
+    "id": 1,
+    "title": "Nasi Goreng",
+    "code": "M001",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 15000,
+    "stock": 20
+  },
+  {
+    "id": 2,
+    "title": "Mie Ayam",
+    "code": "M002",
+    "category": "Main Course",
+    "brand": "Bakmi Jowo",
+    "price": 12000,
+    "stock": 25
+  },
+  {
+    "id": 3,
+    "title": "Sate Ayam",
+    "code": "M003",
+    "category": "Main Course",
+    "brand": "Sate Madura",
+    "price": 20000,
+    "stock": 15
+  },
+  {
+    "id": 4,
+    "title": "Rendang",
+    "code": "M004",
+    "category": "Main Course",
+    "brand": "Padang Resto",
+    "price": 25000,
+    "stock": 10
+  },
+  {
+    "id": 5,
+    "title": "Gado-Gado",
+    "code": "M005",
+    "category": "Salad",
+    "brand": "Warung Nusantara",
+    "price": 10000,
+    "stock": 30
+  },
+  {
+    "id": 6,
+    "title": "Bakso",
+    "code": "M006",
+    "category": "Soup",
+    "brand": "Bakso Malang",
+    "price": 15000,
+    "stock": 20
+  },
+  {
+    "id": 7,
+    "title": "Soto Ayam",
+    "code": "M007",
+    "category": "Soup",
+    "brand": "Soto Kudus",
+    "price": 13000,
+    "stock": 25
+  },
+  {
+    "id": 8,
+    "title": "Ayam Goreng",
+    "code": "M008",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 17000,
+    "stock": 18
+  },
+  {
+    "id": 9,
+    "title": "Pempek",
+    "code": "M009",
+    "category": "Snack",
+    "brand": "Pempek Palembang",
+    "price": 20000,
+    "stock": 15
+  },
+  {
+    "id": 10,
+    "title": "Es Cendol",
+    "code": "M010",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 8000,
+    "stock": 40
+  },
+  {
+    "id": 11,
+    "title": "Es Teler",
+    "code": "M011",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 10000,
+    "stock": 35
+  },
+  {
+    "id": 12,
+    "title": "Kerupuk",
+    "code": "M012",
+    "category": "Snack",
+    "brand": "Warung Nusantara",
+    "price": 5000,
+    "stock": 50
+  },
+  {
+    "id": 13,
+    "title": "Nasi Uduk",
+    "code": "M013",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 12000,
+    "stock": 22
+  },
+  {
+    "id": 14,
+    "title": "Lontong Sayur",
+    "code": "M014",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 14000,
+    "stock": 18
+  },
+  {
+    "id": 15,
+    "title": "Martabak Manis",
+    "code": "M015",
+    "category": "Dessert",
+    "brand": "Martabak Bangka",
+    "price": 25000,
+    "stock": 12
+  },
+  {
+    "id": 16,
+    "title": "Martabak Telur",
+    "code": "M016",
+    "category": "Snack",
+    "brand": "Martabak Bangka",
+    "price": 30000,
+    "stock": 10
+  },
+  {
+    "id": 17,
+    "title": "Klepon",
+    "code": "M017",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 5000,
+    "stock": 40
+  },
+  {
+    "id": 18,
+    "title": "Serabi",
+    "code": "M018",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 7000,
+    "stock": 30
+  },
+  {
+    "id": 19,
+    "title": "Tahu Isi",
+    "code": "M019",
+    "category": "Snack",
+    "brand": "Warung Nusantara",
+    "price": 8000,
+    "stock": 25
+  },
+  {
+    "id": 20,
+    "title": "Tempe Mendoan",
+    "code": "M020",
+    "category": "Snack",
+    "brand": "Warung Nusantara",
+    "price": 10000,
+    "stock": 20
+  },
+  {
+    "id": 21,
+    "title": "Es Doger",
+    "code": "M021",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 9000,
+    "stock": 35
+  },
+  {
+    "id": 22,
+    "title": "Es Pisang Ijo",
+    "code": "M022",
+    "category": "Dessert",
+    "brand": "Warung Nusantara",
+    "price": 12000,
+    "stock": 25
+  },
+  {
+    "id": 23,
+    "title": "Gudeg",
+    "code": "M023",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 20000,
+    "stock": 15
+  },
+  {
+    "id": 24,
+    "title": "Rawon",
+    "code": "M024",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 22000,
+    "stock": 10
+  },
+  {
+    "id": 25,
+    "title": "Sop Buntut",
+    "code": "M025",
+    "category": "Soup",
+    "brand": "Warung Nusantara",
+    "price": 30000,
+    "stock": 8
+  },
+  {
+    "id": 26,
+    "title": "Ayam Bakar",
+    "code": "M026",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 18000,
+    "stock": 20
+  },
+  {
+    "id": 27,
+    "title": "Ikan Bakar",
+    "code": "M027",
+    "category": "Main Course",
+    "brand": "Warung Nusantara",
+    "price": 25000,
+    "stock": 15
+  },
+  {
+    "id": 28,
+    "title": "Cah Kangkung",
+    "code": "M028",
+    "category": "Vegetable",
+    "brand": "Warung Nusantara",
+    "price": 10000,
+    "stock": 25
+  },
+  {
+    "id": 29,
+    "title": "Capcay",
+    "code": "M029",
+    "category": "Vegetable",
+    "brand": "Warung Nusantara",
+    "price": 12000,
+    "stock": 20
+  },
+  {
+    "id": 30,
+    "title": "Sayur Asem",
+    "code": "M030",
+    "category": "Vegetable",
+    "brand": "Warung Nusantara",
+    "price": 8000,
+    "stock": 30
+  }
+]

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import { FaTimes } from "react-icons/fa";
 import PageHeader from "../components/PageHeader";
 import customersData from "../data/customers.json";
@@ -86,7 +87,14 @@ export default function Customers() {
                             {customers.map((customer, index) => (
                                 <tr key={index} className="border-b hover:bg-gray-50">
                                     <td className="px-6 py-4 text-sm text-gray-600 font-mono">{customer.id}</td>
-                                    <td className="px-6 py-4 text-sm font-medium text-gray-900">{customer.name}</td>
+                                    <td className="px-6 py-4 text-sm font-medium">
+                                        <Link
+                                            to={`/customers/${customer.id}`}
+                                            className="text-green-500 font-semibold hover:underline"
+                                        >
+                                            {customer.name}
+                                        </Link>
+                                    </td>
                                     <td className="px-6 py-4 text-sm text-gray-600">{customer.email}</td>
                                     <td className="px-6 py-4 text-sm text-gray-600">{customer.phone}</td>
                                     <td className="px-6 py-4 text-sm">
