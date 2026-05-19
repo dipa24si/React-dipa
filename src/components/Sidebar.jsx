@@ -1,4 +1,4 @@
-﻿import { FaHome, FaShoppingCart, FaUsers, FaPlus, FaExclamationTriangle } from "react-icons/fa";
+﻿import { FaHome, FaShoppingCart, FaUsers, FaPlus, FaExclamationTriangle, FaCubes } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
 
@@ -49,9 +49,15 @@ export default function Sidebar() {
                             <span>Products</span>
                         </NavLink>
                     </li>
+                    <li id="menu-5">
+                        <NavLink to="/components" className={menuClass}>
+                            <FaCubes className="text-xl" />
+                            <span>Components</span>
+                        </NavLink>
+                    </li>
 
                     {/* Error Pages Menu */}
-                    <li id="menu-5">
+                    <li id="menu-6">
                         <div 
                             onClick={() => setExpandErrorMenu(!expandErrorMenu)}
                             className="flex cursor-pointer items-center rounded-xl p-4 space-x-2 text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
