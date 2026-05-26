@@ -55,9 +55,15 @@ export default function Sidebar() {
                             <span>Components</span>
                         </NavLink>
                     </li>
+                    <li id="menu-6">
+                        <NavLink to="/fitur-xyz" className={menuClass}>
+                            <FaCubes className="text-xl" />
+                            <span>Fitur XYZ</span>
+                        </NavLink>
+                    </li>
 
                     {/* Error Pages Menu */}
-                    <li id="menu-6">
+                    <li id="menu-7">
                         <div 
                             onClick={() => setExpandErrorMenu(!expandErrorMenu)}
                             className="flex cursor-pointer items-center rounded-xl p-4 space-x-2 text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
