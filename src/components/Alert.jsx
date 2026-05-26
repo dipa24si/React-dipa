@@ -1,4 +1,9 @@
-import { FaCheck, FaExclamationTriangle, FaTimes, FaInfoCircle } from "react-icons/fa";
+import {
+  FaCheck,
+  FaExclamationTriangle,
+  FaTimes,
+  FaInfoCircle,
+} from "react-icons/fa";
 
 export default function Alert({ children, type = "info", title = "" }) {
   const types = {

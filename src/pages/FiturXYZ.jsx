@@ -1,107 +1,161 @@
-import React, { useState } from 'react';
+import React, { useState } from "react";
 import PageHeader from "../components/PageHeader";
+import { Button } from "@/components/ui/button";
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardFooter,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card";
+import { Badge } from "@/components/ui/badge";
 
 const daftarIsu = [
   {
     id: 1,
     judul: "Evaluasi & Standarisasi Anggaran Makan Bergizi Gratis (MBG)",
     kategori: "Kebijakan Publik",
-    deskripsi: "Badan Gizi Nasional (BGN) memperketat standarisasi layanan SPPG (Satuan Pelayanan Pemenuhan Gizi) dan mengevaluasi efisiensi anggaran jumbo guna memastikan program berjalan tepat sasaran tanpa menurunkan kualitas nutrisi.",
+    deskripsi:
+      "Badan Gizi Nasional (BGN) memperketat standarisasi layanan SPPG (Satuan Pelayanan Pemenuhan Gizi) dan mengevaluasi efisiensi anggaran jumbo guna memastikan program berjalan tepat sasaran tanpa menurunkan kualitas nutrisi.",
     tren: "Meningkat",
-    warnaKategori: "bg-blue-100 text-blue-800"
+    warnaKategori: "bg-blue-100 text-blue-800",
   },
   {
     id: 2,
     judul: "Fluktuasi Nilai Tukar Rupiah & Tekanan Global",
     kategori: "Ekonomi",
-    deskripsi: "Komite Stabilitas Sistem Keuangan (KSSK) dan Bank Indonesia terus memperkuat intervensi pasar valas dan menyesuaikan threshold beli tunai valas untuk meredam dampak kenaikan yield obligasi global.",
+    deskripsi:
+      "Komite Stabilitas Sistem Keuangan (KSSK) dan Bank Indonesia terus memperkuat intervensi pasar valas dan menyesuaikan threshold beli tunai valas untuk meredam dampak kenaikan yield obligasi global.",
     tren: "Stabil",
-    warnaKategori: "bg-amber-100 text-amber-800"
+    warnaKategori: "bg-amber-100 text-amber-800",
   },
   {
     id: 3,
     judul: "Peningkatan Fasilitas & Transformasi Layanan Haji 2026",
     kategori: "Sosial & Agama",
-    deskripsi: "Kementerian Haji mendapat apresiasi atas peluncuran program ramah lansia dan disabilitas di Arab Saudi, termasuk transparansi pengelolaan dana dam jemaah haji yang kini diperluas manfaatnya.",
+    deskripsi:
+      "Kementerian Haji mendapat apresiasi atas peluncuran program ramah lansia dan disabilitas di Arab Saudi, termasuk transparansi pengelolaan dana dam jemaah haji yang kini diperluas manfaatnya.",
     tren: "Meningkat",
-    warnaKategori: "bg-emerald-100 text-emerald-800"
+    warnaKategori: "bg-emerald-100 text-emerald-800",
   },
   {
     id: 4,
     judul: "Transisi Energi Hijau & Pembiayaan Sukuk Hijau",
     kategori: "Lingkungan",
-    deskripsi: "Sektor keuangan nasional semakin gencar menggandeng pengembang hidro dan energi terbarukan melalui instrumen Sukuk Hijau guna mempercepat target Net Zero Emission.",
+    deskripsi:
+      "Sektor keuangan nasional semakin gencar menggandeng pengembang hidro dan energi terbarukan melalui instrumen Sukuk Hijau guna mempercepat target Net Zero Emission.",
     tren: "Meningkat",
-    warnaKategori: "bg-green-100 text-green-800"
+    warnaKategori: "bg-green-100 text-green-800",
   },
   {
     id: 5,
     judul: "Efisiensi BUMN & Pemangkasan Anak Usaha Telkom",
     kategori: "Ekonomi",
-    deskripsi: "Badan Pengelola BUMN mengambil langkah agresif memangkas 67 anak usaha Telkom menjadi hanya 19 entitas demi merampingkan struktur bisnis dan meningkatkan profitabilitas.",
+    deskripsi:
+      "Badan Pengelola BUMN mengambil langkah agresif memangkas 67 anak usaha Telkom menjadi hanya 19 entitas demi merampingkan struktur bisnis dan meningkatkan profitabilitas.",
     tren: "Hot",
-    warnaKategori: "bg-amber-100 text-amber-800"
+    warnaKategori: "bg-amber-100 text-amber-800",
   },
   {
     id: 6,
     judul: "Demam Kendaraan Listrik (EV) & Perang Harga Motor Listrik",
     kategori: "Teknologi",
-    deskripsi: "Masuknya raksasa otomotif baru ke pasar Indonesia memicu persaingan ketat pada daya tahan baterai, skema swap murah, serta desakan evaluasi keberlanjutan subsidi EV.",
+    deskripsi:
+      "Masuknya raksasa otomotif baru ke pasar Indonesia memicu persaingan ketat pada daya tahan baterai, skema swap murah, serta desakan evaluasi keberlanjutan subsidi EV.",
     tren: "Hot",
-    warnaKategori: "bg-purple-100 text-purple-800"
+    warnaKategori: "bg-purple-100 text-purple-800",
   },
   {
     id: 7,
     judul: "Kedaulatan Digital & Pemberantasan Hoaks Nasional",
     kategori: "Teknologi",
-    deskripsi: "Menjelang paruh kedua tahun, isu disinformasi—seperti isu hoaks guru honorer dan keamanan data siber—mendorong pengetatan kedaulatan informasi digital oleh Komdigi.",
+    deskripsi:
+      "Menjelang paruh kedua tahun, isu disinformasi—seperti isu hoaks guru honorer dan keamanan data siber—mendorong pengetatan kedaulatan informasi digital oleh Komdigi.",
     tren: "Stabil",
-    warnaKategori: "bg-purple-100 text-purple-800"
+    warnaKategori: "bg-purple-100 text-purple-800",
   },
   {
     id: 8,
     judul: "Tata Kelola Impor Minyak Pertamina & BLU Baru",
     kategori: "Kebijakan Publik",
-    deskripsi: "Pemerintah menerbitkan mekanisme baru mengenai izin impor minyak mentah dan BBM untuk memperkuat ketahanan energi nasional dan menekan kebocoran anggaran negara.",
+    deskripsi:
+      "Pemerintah menerbitkan mekanisme baru mengenai izin impor minyak mentah dan BBM untuk memperkuat ketahanan energi nasional dan menekan kebocoran anggaran negara.",
     tren: "Meningkat",
-    warnaKategori: "bg-blue-100 text-blue-800"
+    warnaKategori: "bg-blue-100 text-blue-800",
   },
   {
     id: 9,
     judul: "Ancaman Cuaca Ekstrem Fase El Niño",
     kategori: "Lingkungan",
-    deskripsi: "BMKG memperingatkan potensi minimnya curah hujan di wilayah Indonesia Timur akibat indeks El Niño yang kembali memanas, kontras dengan potensi hujan badai jangka pendek di beberapa wilayah barat.",
+    deskripsi:
+      "BMKG memperingatkan potensi minimnya curah hujan di wilayah Indonesia Timur akibat indeks El Niño yang kembali memanas, kontras dengan potensi hujan badai jangka pendek di beberapa wilayah barat.",
     tren: "Meningkat",
-    warnaKategori: "bg-green-100 text-green-800"
+    warnaKategori: "bg-green-100 text-green-800",
   },
   {
     id: 10,
     judul: "Antusiasme Siaran & Persiapan Hak Siar Piala Dunia 2026",
     kategori: "Olahraga",
-    deskripsi: "Euforia masyarakat Indonesia melonjak menyambut pergelaran Piala Dunia tahun ini, mendorong digitalisasi siaran TV publik (TVRI) untuk menjamin akses siaran gratis berkualitas di pelosok negeri.",
+    deskripsi:
+      "Euforia masyarakat Indonesia melonjak menyambut pergelaran Piala Dunia tahun ini, mendorong digitalisasi siaran TV publik (TVRI) untuk menjamin akses siaran gratis berkualitas di pelosok negeri.",
     tren: "Hot",
-    warnaKategori: "bg-red-100 text-red-800"
-  }
+    warnaKategori: "bg-red-100 text-red-800",
+  },
 ];
 
 export default function FiturXYZ() {
   const [pencarian, setPencarian] = useState("");
   const [kategoriTerpilih, setKategoriTerpilih] = useState("Semua");
 
-  const kategoriUnik = ["Semua", ...new Set(daftarIsu.map(isu => isu.kategori))];
+  const kategoriUnik = [
+    "Semua",
+    ...new Set(daftarIsu.map((isu) => isu.kategori)),
+  ];
 
-  const IsuDifilter = daftarIsu.filter(isu => {
-    const cocokPencarian = isu.judul.toLowerCase().includes(pencarian.toLowerCase()) || isu.deskripsi.toLowerCase().includes(pencarian.toLowerCase());
-    const cocokKategori = kategoriTerpilih === "Semua" || isu.kategori === kategoriTerpilih;
+  const IsuDifilter = daftarIsu.filter((isu) => {
+    const cocokPencarian =
+      isu.judul.toLowerCase().includes(pencarian.toLowerCase()) ||
+      isu.deskripsi.toLowerCase().includes(pencarian.toLowerCase());
+    const cocokKategori =
+      kategoriTerpilih === "Semua" || isu.kategori === kategoriTerpilih;
     return cocokPencarian && cocokKategori;
   });
 
   return (
     <div id="fitur-xyz-page">
       <PageHeader title="Fitur XYZ" breadcrumbs={["Dashboard", "Fitur XYZ"]} />
-      
+
       <div className="p-5 mb-8">
-          <p className="text-lg text-gray-600">Ini Halaman Fitur XYZ</p>
+        <p className="text-lg text-gray-600">Ini Halaman Fitur XYZ</p>
+        <Card className="mt-4 w-[380px]">
+          <CardHeader>
+            <div className="flex items-center justify-between">
+              <CardTitle>Belajar shadcn/ui</CardTitle>
+              <Badge variant="secondary">Baru</Badge>
+            </div>
+            <CardDescription>
+              Contoh penggunaan komponen shadcn/ui di React
+            </CardDescription>
+          </CardHeader>
+
+          <CardContent>
+            <p className="text-sm text-muted-foreground">
+              Komponen ini dibuat di branch <strong>setup-shadcn</strong>
+              lalu di-merge ke main.
+            </p>
+          </CardContent>
+
+          <CardFooter className="flex gap-2">
+            <Button>Simpan</Button>
+            <Button variant="outline">Batal</Button>
+          </CardFooter>
+        </Card>
+        <div className="mt-4 flex flex-wrap gap-2">
+          <Button variant="outline">Batal</Button>
+          <Button variant="ghost">Batal</Button>
+          <Button variant="destructive">Batal</Button>
+        </div>
       </div>
 
       <div className="min-h-screen bg-gray-50 py-10 px-4 sm:px-6 lg:px-8 font-sans">
@@ -112,7 +166,8 @@ export default function FiturXYZ() {
               10 Isu Terhangat <span className="text-red-600">Indonesia</span>
             </h1>
             <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4">
-              Rangkuman topik, kebijakan baru, dan dinamika sosial-ekonomi yang sedang ramai diperbincangkan.
+              Rangkuman topik, kebijakan baru, dan dinamika sosial-ekonomi yang
+              sedang ramai diperbincangkan.
             </p>
           </div>
 
@@ -129,17 +184,15 @@ export default function FiturXYZ() {
             </div>
             <div className="flex flex-wrap gap-2">
               {kategoriUnik.map((kat) => (
-                <button
+                <Button
                   key={kat}
+                  variant={kategoriTerpilih === kat ? "default" : "outline"}
+                  size="sm"
                   onClick={() => setKategoriTerpilih(kat)}
-                  className={`px-4 py-2 rounded-lg text-xs font-semibold tracking-wide transition-colors duration-200 ${
-                    kategoriTerpilih === kat
-                      ? "bg-red-600 text-white"
-                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
-                  }`}
+                  className="text-xs font-semibold tracking-wide"
                 >
                   {kat}
-                </button>
+                </Button>
               ))}
             </div>
           </div>
@@ -154,7 +207,9 @@ export default function FiturXYZ() {
                 >
                   <div>
                     <div className="flex items-center justify-between mb-4">
-                      <span className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${isu.warnaKategori}`}>
+                      <span
+                        className={`px-2.5 py-0.5 rounded-full text-xs font-medium ${isu.warnaKategori}`}
+                      >
                         {isu.kategori}
                       </span>
                       <span
@@ -162,8 +217,8 @@ export default function FiturXYZ() {
                           isu.tren === "Hot"
                             ? "text-red-600 animate-pulse"
                             : isu.tren === "Meningkat"
-                            ? "text-orange-500"
-                            : "text-gray-400"
+                              ? "text-orange-500"
+                              : "text-gray-400"
                         }`}
                       >
                         🔥 {isu.tren}
@@ -178,16 +233,22 @@ export default function FiturXYZ() {
                   </div>
                   <div className="mt-6 pt-4 border-t border-gray-50 flex items-center justify-between text-xs text-gray-400">
                     <span>Mei 2026</span>
-                    <button className="text-red-600 font-semibold hover:underline flex items-center gap-1">
-                      Pelajari Selengkapnya <span>&rarr;</span>
-                    </button>
+                    <Button
+                      variant="link"
+                      size="sm"
+                      className="text-red-600 font-semibold hover:underline flex items-center gap-1"
+                    >
+                      Pelajari Selengkapnya <span aria-hidden="true">→</span>
+                    </Button>
                   </div>
                 </div>
               ))}
             </div>
           ) : (
             <div className="text-center py-12 bg-white rounded-xl shadow-sm">
-              <p className="text-gray-500 text-lg">Isu yang kamu cari tidak ditemukan.</p>
+              <p className="text-gray-500 text-lg">
+                Isu yang kamu cari tidak ditemukan.
+              </p>
             </div>
           )}
         </div>
