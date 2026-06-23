@@ -1,8 +1,39 @@
-﻿import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
+import { useEffect, useState } from "react";
+import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
 import PageHeader from "../components/PageHeader";
 import QuickActionCard from "../components/QuickActionCard";
+import { supabase } from "../services/supabaseClient";
+import { useAuth } from "../context/useAuth";
 
 export default function Dashboard() {
+    const { profile, isMember } = useAuth();
+    const [stats, setStats] = useState({
+        totalOrders: 0,
+        completedOrders: 0,
+        cancelledOrders: 0,
+        revenue: 0,
+    });
+
+    useEffect(() => {
+        const loadStats = async () => {
+            const { data } = await supabase
+                .from("orders")
+                .select("status,total_amount");
+
+            const orders = data || [];
+            setStats({
+                totalOrders: orders.length,
+                completedOrders: orders.filter((order) => order.status === "Completed").length,
+                cancelledOrders: orders.filter((order) => order.status === "Cancelled").length,
+                revenue: orders
+                    .filter((order) => order.status === "Completed")
+                    .reduce((total, order) => total + Number(order.total_amount), 0),
+            });
+        };
+
+        loadStats();
+    }, []);
+
     return (
         <div id="dashboard-container">
             <PageHeader title="Dashboard" breadcrumbs={["Home"]} />
@@ -13,7 +44,7 @@ export default function Dashboard() {
                         <FaShoppingCart />
                     </div>
                     <div id="orders-info" className="flex flex-col">
-                        <span id="orders-count" className="text-2xl font-bold">75</span>
+                        <span id="orders-count" className="text-2xl font-bold">{stats.totalOrders}</span>
                         <span id="orders-text" className="text-gray-400">Total Orders</span>
                     </div>
                 </div>
@@ -23,8 +54,8 @@ export default function Dashboard() {
                         <FaTruck />
                     </div>
                     <div id="delivered-info" className="flex flex-col">
-                        <span id="delivered-count" className="text-2xl font-bold">175</span>
-                        <span id="delivered-text" className="text-gray-400">Total Delivered</span>
+                        <span id="delivered-count" className="text-2xl font-bold">{stats.completedOrders}</span>
+                        <span id="delivered-text" className="text-gray-400">Completed Orders</span>
                     </div>
                 </div>
 
@@ -33,7 +64,7 @@ export default function Dashboard() {
                         <FaBan />
                     </div>
                     <div id="canceled-info" className="flex flex-col">
-                        <span id="canceled-count" className="text-2xl font-bold">40</span>
+                        <span id="canceled-count" className="text-2xl font-bold">{stats.cancelledOrders}</span>
                         <span id="canceled-text" className="text-gray-400">Total Canceled</span>
                     </div>
                 </div>
@@ -43,7 +74,9 @@ export default function Dashboard() {
                         <FaDollarSign />
                     </div>
                     <div id="revenue-info" className="flex flex-col">
-                        <span id="revenue-amount" className="text-2xl font-bold">Rp.128</span>
+                        <span id="revenue-amount" className="text-2xl font-bold">
+                            Rp {stats.revenue.toLocaleString("id-ID")}
+                        </span>
                         <span id="revenue-text" className="text-gray-400">Total Revenue</span>
                     </div>
                 </div>
@@ -60,27 +93,26 @@ export default function Dashboard() {
                     </div>
                     <ul className="space-y-3 text-sm text-slate-600">
                         <li className="flex items-center justify-between rounded-2xl bg-slate-50 p-4">
-                            <span>Order #5017 confirmed</span>
+                            <span>Order data synchronized</span>
                             <span className="text-xs font-semibold text-sky-600">Now</span>
                         </li>
                         <li className="flex items-center justify-between rounded-2xl bg-slate-50 p-4">
-                            <span>Driver on the way to warehouse</span>
-                            <span className="text-xs font-semibold text-emerald-600">5m ago</span>
+                            <span>Products loaded from Supabase</span>
+                            <span className="text-xs font-semibold text-emerald-600">Live</span>
                         </li>
                         <li className="flex items-center justify-between rounded-2xl bg-slate-50 p-4">
-                            <span>Customer feedback received</span>
-                            <span className="text-xs font-semibold text-slate-400">10m ago</span>
+                            <span>Member rewards use completed orders</span>
+                            <span className="text-xs font-semibold text-slate-400">Auto</span>
                         </li>
                     </ul>
                 </div>
 
                 <QuickActionCard
-                    title="Optimize delivery route"
-                    description="Gunakan analisis rute terbaru untuk mempercepat pengiriman dan mengurangi biaya."
-                    buttonText="Lihat Rute"
+                    title={isMember ? `Tier ${profile?.tier || "Bronze"} - ${profile?.points || 0} Points` : "Optimize delivery route"}
+                    description={isMember ? "Checkout produk dan selesaikan pesanan untuk meningkatkan tier member." : "Gunakan analisis rute terbaru untuk mempercepat pengiriman dan mengurangi biaya."}
+                    buttonText={isMember ? "Lihat Produk" : "Lihat Rute"}
                 />
             </div>
         </div>
     );
 }
-

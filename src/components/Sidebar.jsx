@@ -9,9 +9,12 @@
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 import { useState } from "react";
+import { useAuth } from "../context/useAuth";
 
 export default function Sidebar() {
   const [expandErrorMenu, setExpandErrorMenu] = useState(false);
+  const { isAdmin } = useAuth();
+  const basePath = isAdmin ? "/admin" : "/member";
 
   const menuClass = ({ isActive }) =>
     `flex cursor-pointer items-center rounded-xl p-4 space-x-2
@@ -38,7 +41,7 @@ export default function Sidebar() {
           </b>
         </span>
         <span id="logo-subtitle" className="font-semibold text-gray-400">
-          Modern Admin Dashboard
+          {isAdmin ? "Modern Admin Dashboard" : "Member Dashboard"}
         </span>
       </div>
 
@@ -46,50 +49,57 @@ export default function Sidebar() {
       <div id="sidebar-menu" className="mb-10">
         <ul id="menu-list" className="space-y-3">
           <li id="menu-1">
-            <NavLink to="/" className={menuClass}>
+            <NavLink to={basePath} className={menuClass}>
               <FaHome className="text-xl" />
               <span>Dashboard</span>
             </NavLink>
           </li>
           <li id="menu-2">
-            <NavLink to="/orders" className={menuClass}>
+            <NavLink to={`${basePath}/orders`} className={menuClass}>
               <FaShoppingCart className="text-xl" />
               <span>Orders</span>
             </NavLink>
           </li>
-          <li id="menu-3">
-            <NavLink to="/customers" className={menuClass}>
-              <FaUsers className="text-xl" />
-              <span>Customers</span>
-            </NavLink>
-          </li>
+          {isAdmin && (
+            <li id="menu-3">
+              <NavLink to="/admin/customers" className={menuClass}>
+                <FaUsers className="text-xl" />
+                <span>Customers</span>
+              </NavLink>
+            </li>
+          )}
           <li id="menu-4">
-            <NavLink to="/products" className={menuClass}>
+            <NavLink to={`${basePath}/products`} className={menuClass}>
               <FaPlus className="text-xl" />
               <span>Products</span>
             </NavLink>
           </li>
-          <li id="menu-5">
-            <NavLink to="/components" className={menuClass}>
-              <FaCubes className="text-xl" />
-              <span>Components</span>
-            </NavLink>
-          </li>
-          <li id="menu-6">
-            <NavLink to="/notes" className={menuClass}>
-              <FaRegStickyNote className="text-xl" />
-              <span>Notes</span>
-            </NavLink>
-          </li>
-          <li id="menu-7">
-            <NavLink to="/fitur-xyz" className={menuClass}>
-              <FaCubes className="text-xl" />
-              <span>Fitur XYZ</span>
-            </NavLink>
-          </li>
+          {isAdmin && (
+            <>
+              <li id="menu-5">
+                <NavLink to="/admin/components" className={menuClass}>
+                  <FaCubes className="text-xl" />
+                  <span>Components</span>
+                </NavLink>
+              </li>
+              <li id="menu-6">
+                <NavLink to="/admin/notes" className={menuClass}>
+                  <FaRegStickyNote className="text-xl" />
+                  <span>Notes</span>
+                </NavLink>
+              </li>
+              <li id="menu-7">
+                <NavLink to="/admin/fitur-xyz" className={menuClass}>
+                  <FaCubes className="text-xl" />
+                  <span>Fitur XYZ</span>
+                </NavLink>
+              </li>
+            </>
+          )}
 
           {/* Error Pages Menu */}
-          <li id="menu-7">
+          {isAdmin && (
+          <li id="menu-8">
             <div
               onClick={() => setExpandErrorMenu(!expandErrorMenu)}
               className="flex cursor-pointer items-center rounded-xl p-4 space-x-2 text-gray-600 hover:text-hijau hover:bg-green-200 hover:font-extrabold"
@@ -103,7 +113,7 @@ export default function Sidebar() {
               <ul className="mt-2 ml-4 space-y-2 pl-2 border-l-2 border-hijau">
                 <li>
                   <NavLink
-                    to="/error/400"
+                    to="/admin/error/400"
                     className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-red-600 hover:bg-red-50 transition-colors"
                   >
                     <span>Error 400 (Bad Request)</span>
@@ -111,7 +121,7 @@ export default function Sidebar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/error/401"
+                    to="/admin/error/401"
                     className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-orange-600 hover:bg-orange-50 transition-colors"
                   >
                     <span>Error 401 (Unauthorized)</span>
@@ -119,7 +129,7 @@ export default function Sidebar() {
                 </li>
                 <li>
                   <NavLink
-                    to="/error/403"
+                    to="/admin/error/403"
                     className="flex items-center rounded-lg p-3 text-sm text-gray-600 hover:text-yellow-600 hover:bg-yellow-50 transition-colors"
                   >
                     <span>Error 403 (Forbidden)</span>
@@ -128,6 +138,7 @@ export default function Sidebar() {
               </ul>
             )}
           </li>
+          )}
         </ul>
       </div>
 
@@ -155,7 +166,7 @@ export default function Sidebar() {
           />
         </div>
         <span id="footer-brand" className="font-bold text-gray-400">
-          Sedap Restaurant Admin Dashboard
+          {isAdmin ? "Sedap Restaurant Admin Dashboard" : "Sedap Restaurant Member Dashboard"}
         </span>
         <p id="footer-copyright" className="font-light text-gray-400">
           &copy; 2025 All Right Reserved

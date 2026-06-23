@@ -1,45 +1,45 @@
-import { Link, useParams } from "react-router-dom"
-import customers from "../data/customers.json"
+import { Link, useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { supabase } from "../services/supabaseClient";
+import LoadingSpinner from "../components/LoadingSpinner";
 
 export default function CustomerDetail() {
-    const { id } = useParams()
-    const customer = customers.find((item) => item.id === id)
+    const { id } = useParams();
+    const [customer, setCustomer] = useState(null);
+    const [loading, setLoading] = useState(true);
 
-    const getCustomerPhoto = (customer) => {
-        const femaleNames = [
-            "Citra",
-            "Eka",
-            "Gina",
-            "Indah",
-            "Kartini",
-            "Maya",
-            "Ola",
-            "Qori",
-            "Siti",
-            "Vira",
-            "Xenia",
-            "Zara",
-            "Bella",
-            "Dita",
-        ]
-        const firstName = customer.name.split(" ")[0]
-        const folder = femaleNames.includes(firstName) ? "women" : "men"
-        const photoNumber = Number(customer.id.replace("CUST", "")) % 80
+    useEffect(() => {
+        const loadCustomer = async () => {
+            const { data } = await supabase
+                .from("profiles")
+                .select("*")
+                .eq("id", id)
+                .single();
 
-        return `https://randomuser.me/api/portraits/${folder}/${photoNumber}.jpg`
-    }
+            setCustomer(data);
+            setLoading(false);
+        };
 
-    const getLoyaltyColor = (loyalty) => {
-        switch (loyalty) {
+        loadCustomer();
+    }, [id]);
+
+    const getLoyaltyColor = (tier) => {
+        switch (tier) {
             case "Gold":
-                return "bg-yellow-100 text-yellow-800"
+                return "bg-yellow-100 text-yellow-800";
             case "Silver":
-                return "bg-gray-100 text-gray-800"
+                return "bg-gray-100 text-gray-800";
+            case "Platinum":
+                return "bg-sky-100 text-sky-800";
             case "Bronze":
-                return "bg-orange-100 text-orange-800"
+                return "bg-orange-100 text-orange-800";
             default:
-                return "bg-gray-100 text-gray-800"
+                return "bg-gray-100 text-gray-800";
         }
+    };
+
+    if (loading) {
+        return <LoadingSpinner text="Memuat customer..." />;
     }
 
     if (!customer) {
@@ -53,7 +53,7 @@ export default function CustomerDetail() {
                     </Link>
                 </div>
             </div>
-        )
+        );
     }
 
     return (
@@ -61,30 +61,27 @@ export default function CustomerDetail() {
             <div className="bg-white rounded-lg shadow-lg max-w-lg mx-auto overflow-hidden">
                 <div className="bg-green-50 px-6 py-8 text-center border-b border-green-100">
                     <img
-                        src={getCustomerPhoto(customer)}
-                        alt={customer.name}
-                        onError={(event) => {
-                            event.currentTarget.src = "/avatar.svg"
-                        }}
+                        src="/avatar.svg"
+                        alt={customer.full_name}
                         className="w-28 h-28 rounded-full object-cover mx-auto mb-4 border-4 border-white shadow-md"
                     />
                     <p className="text-sm font-semibold text-green-600 mb-2">{customer.id}</p>
-                    <h2 className="text-3xl font-bold text-gray-900">{customer.name}</h2>
+                    <h2 className="text-3xl font-bold text-gray-900">{customer.full_name || "-"}</h2>
                 </div>
 
                 <div className="p-6 space-y-4">
                     <div className="flex items-center justify-between gap-4">
-                        <span className="text-gray-500">Email</span>
-                        <span className="font-semibold text-gray-800">{customer.email}</span>
+                        <span className="text-gray-500">Role</span>
+                        <span className="font-semibold text-gray-800">{customer.role}</span>
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <span className="text-gray-500">Phone</span>
-                        <span className="font-semibold text-gray-800">{customer.phone}</span>
+                        <span className="text-gray-500">Points</span>
+                        <span className="font-semibold text-gray-800">{customer.points}</span>
                     </div>
                     <div className="flex items-center justify-between gap-4">
-                        <span className="text-gray-500">Loyalty</span>
-                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getLoyaltyColor(customer.loyalty)}`}>
-                            {customer.loyalty}
+                        <span className="text-gray-500">Tier</span>
+                        <span className={`px-3 py-1 rounded-full text-sm font-semibold ${getLoyaltyColor(customer.tier)}`}>
+                            {customer.tier}
                         </span>
                     </div>
 
@@ -97,5 +94,5 @@ export default function CustomerDetail() {
                 </div>
             </div>
         </div>
-    )
+    );
 }

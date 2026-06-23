@@ -1,8 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import axios from "axios";
 import { BsFillExclamationDiamondFill } from "react-icons/bs";
 import { ImSpinner2 } from "react-icons/im";
+import { supabase } from "../../services/supabaseClient";
+import { isAdminRole } from "../../utils/role";
 
 export default function Login() {
     const navigate = useNavigate();
@@ -27,23 +28,25 @@ export default function Login() {
         setError("");
 
         try {
-            const response = await axios.post("https://dummyjson.com/users/login", {
-                username: dataForm.email,
+            const { data, error } = await supabase.auth.signInWithPassword({
+                email: dataForm.email,
                 password: dataForm.password,
             });
 
-            if (response.status !== 200) {
-                setError(response.data.message || "Login failed");
+            if (error) {
+                setError(error.message || "Login failed");
                 return;
             }
 
-            navigate("/");
+            const { data: profileData } = await supabase
+                .from("profiles")
+                .select("role")
+                .eq("id", data.user.id)
+                .single();
+
+            navigate(isAdminRole(profileData?.role) ? "/admin" : "/member");
         } catch (err) {
-            if (err.response) {
-                setError(err.response.data.message || "An error occurred");
-            } else {
-                setError(err.message || "An unknown error occurred");
-            }
+            setError(err.message || "An unknown error occurred");
         } finally {
             setLoading(false);
         }

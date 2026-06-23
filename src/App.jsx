@@ -3,6 +3,8 @@ import { Routes, Route } from "react-router-dom";
 const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
 const AuthLayout = React.lazy(() => import("./layouts/AuthLayout"));
 import Loading from "./components/Loading";
+import ProtectedRoute from "./components/ProtectedRoute";
+import RoleRedirect from "./components/RoleRedirect";
 const ErrorPage = React.lazy(() => import("./components/ErrorPage"));
 import "./assets/tailwind.css";
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"));
@@ -24,47 +26,61 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Dashboard />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="customers/:id" element={<CustomerDetail />} />
-          <Route path="customers" element={<Customers />} />
-          <Route path="fitur-xyz" element={<FiturXYZ />} />
-          <Route path="notes" element={<Notes />} />
-          <Route path="components" element={<Components />} />
-          <Route
-            path="/error/400"
-            element={
-              <ErrorPage
-                errorCode={400}
-                errorTitle="Bad Request"
-                errorDescription="The server cannot process the request due to client error (e.g., malformed request syntax)."
-              />
-            }
-          />
-          <Route
-            path="/error/401"
-            element={
-              <ErrorPage
-                errorCode={401}
-                errorTitle="Unauthorized"
-                errorDescription="You need to be authenticated untuk mengakses resource ini."
-              />
-            }
-          />
-          <Route
-            path="/error/403"
-            element={
-              <ErrorPage
-                errorCode={403}
-                errorTitle="Forbidden"
-                errorDescription="You do not have permission to access this resource."
-              />
-            }
-          />
-          <Route path="*" element={<NotFound />} />
-          <Route path="/products/:id" element={<ProductDetail />} />
-          <Route path="products" element={<Products />} />
+        <Route element={<ProtectedRoute roles={["Admin", "Member"]} />}>
+          <Route path="/" element={<RoleRedirect />} />
+        </Route>
+
+        <Route element={<ProtectedRoute roles={["Admin"]} />}>
+          <Route element={<MainLayout />}>
+            <Route path="/admin" element={<Dashboard />} />
+            <Route path="/admin/orders" element={<Orders />} />
+            <Route path="/admin/customers" element={<Customers />} />
+            <Route path="/admin/customers/:id" element={<CustomerDetail />} />
+            <Route path="/admin/products" element={<Products />} />
+            <Route path="/admin/products/:id" element={<ProductDetail />} />
+            <Route path="/admin/fitur-xyz" element={<FiturXYZ />} />
+            <Route path="/admin/notes" element={<Notes />} />
+            <Route path="/admin/components" element={<Components />} />
+            <Route
+              path="/admin/error/400"
+              element={
+                <ErrorPage
+                  errorCode={400}
+                  errorTitle="Bad Request"
+                  errorDescription="The server cannot process the request due to client error (e.g., malformed request syntax)."
+                />
+              }
+            />
+            <Route
+              path="/admin/error/401"
+              element={
+                <ErrorPage
+                  errorCode={401}
+                  errorTitle="Unauthorized"
+                  errorDescription="You need to be authenticated untuk mengakses resource ini."
+                />
+              }
+            />
+            <Route
+              path="/admin/error/403"
+              element={
+                <ErrorPage
+                  errorCode={403}
+                  errorTitle="Forbidden"
+                  errorDescription="You do not have permission to access this resource."
+                />
+              }
+            />
+          </Route>
+        </Route>
+
+        <Route element={<ProtectedRoute roles={["Member"]} />}>
+          <Route element={<MainLayout />}>
+            <Route path="/member" element={<Dashboard />} />
+            <Route path="/member/products" element={<Products />} />
+            <Route path="/member/products/:id" element={<ProductDetail />} />
+            <Route path="/member/orders" element={<Orders />} />
+          </Route>
         </Route>
 
         <Route element={<AuthLayout />}>
@@ -72,6 +88,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route path="/forgot" element={<Forgot />} />
         </Route>
+        <Route path="*" element={<NotFound />} />
       </Routes>
     </Suspense>
   );

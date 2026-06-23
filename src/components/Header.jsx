@@ -3,9 +3,18 @@ import { FaBell, FaSearch } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
 import SearchModal from "./SearchModal";
+import { useAuth } from "../context/useAuth";
+import { useNavigate } from "react-router-dom";
 
 export default function Header() {
     const [searchOpen, setSearchOpen] = useState(false);
+    const { profile, signOut } = useAuth();
+    const navigate = useNavigate();
+
+    const handleLogout = async () => {
+        await signOut();
+        navigate("/login");
+    };
 
     return (
         <>
@@ -51,7 +60,7 @@ export default function Header() {
                     {/* Profile Section */}
                     <div id="profile-container" className="flex items-center gap-3">
                         <span id="profile-text" className="text-sm">
-                            Hello, <b>Dipa Tranggana</b>
+                            Hello, <b>{profile?.full_name || "User"}</b>
                         </span>
                         <div className="rounded-full bg-slate-100 p-1">
                             <img
@@ -61,6 +70,12 @@ export default function Header() {
                                 className="w-10 h-10 rounded-full object-cover"
                             />
                         </div>
+                        <button
+                            onClick={handleLogout}
+                            className="rounded-lg bg-slate-100 px-3 py-2 text-xs font-semibold text-slate-600 hover:bg-slate-200"
+                        >
+                            Logout
+                        </button>
                     </div>
                 </div>
             </div>
